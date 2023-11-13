@@ -1,11 +1,8 @@
 import "./App.css";
+import Layout from "./layout/Layout";
 
 function App() {
-  return (
-    <>
-      <h1 className="font-nunitoSans">HELLO WORLD</h1>
-    </>
-  );
+  return <Layout>Hello</Layout>;
 }
 
 export default App;
