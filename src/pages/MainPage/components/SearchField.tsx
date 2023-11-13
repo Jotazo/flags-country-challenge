@@ -9,7 +9,7 @@ const SearchField = () => {
       <input
         type="text"
         placeholder="Search for a country"
-        className="dark:bg-darkBlue searchField-input text-xs p-4 pl-12 w-11/12 rounded-md mt-4 mx-auto outline-none dark:text-white"
+        className="dark:bg-darkBlue searchField-input text-sm p-4 pl-12 w-11/12 rounded-md mt-4 mx-auto outline-none dark:text-white"
       />
     </div>
   );
