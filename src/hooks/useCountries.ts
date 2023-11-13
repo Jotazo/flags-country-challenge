@@ -2,8 +2,10 @@ import { useState, useEffect } from "react";
 
 import { getAllCountries } from "../services/countries";
 
+import { Country } from "../interfaces";
+
 const useCountries = () => {
-  const [countries, setCountries] = useState(null);
+  const [countries, setCountries] = useState<Country[]>([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
