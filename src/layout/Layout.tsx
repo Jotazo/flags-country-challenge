@@ -13,7 +13,7 @@ const Layout: React.FC<PropsWithChildren> = ({ children }) => {
         </h3>
         <ThemeToggler variant="animated" />
       </header>
-      <main className="bg-lightGray dark:bg-darkBlueBg h-[calc(100vh-72px)] transition duration-500">
+      <main className="bg-lightGray dark:bg-darkBlueBg h-[calc(100vh-80px)] transition duration-500">
         {children}
       </main>
     </>
