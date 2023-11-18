@@ -1,6 +1,11 @@
+import SearchField from "./components/SearchField";
+
 const MainPage = ({ countries }) => {
-  console.log(countries);
-  return <div>MainPage</div>;
+  return (
+    <div>
+      {/* <SearchField /> */}
+    </div>
+  );
 };
 
 export default MainPage;
