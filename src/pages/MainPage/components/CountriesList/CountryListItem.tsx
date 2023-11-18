@@ -10,11 +10,11 @@ interface Props {
 
 const CountryListItem: React.FC<Props> = ({ country }) => {
   return (
-    <li className="flex flex-col rounded-lg dark:bg-darkBlue bg-white card">
+    <li className="flex flex-col rounded-lg dark:bg-darkBlue bg-white card transition-colors duration-500">
       <img
         src={country.flag}
         alt={country.region}
-        className="object-cover rounded-tl-lg rounded-tr-lg w-[345px] h-[230px]"
+        className="object-fill rounded-tl-lg rounded-tr-lg w-[345px] h-[230px]"
       />
       <main className="flex flex-col gap-4 px-6 pt-8 pb-12 dark:text-white text-darkBlueLightText">
         <h3 className="font-extrabold text-lg">{country.name}</h3>
