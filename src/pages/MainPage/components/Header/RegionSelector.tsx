@@ -1,18 +1,22 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
+import useAppStore from "../../../../store/useAppStore";
+
 import { ChevronDownIcon } from "../../../../assets/Icons";
 
-const REGIONS = ["Africa", "America", "Asia", "Europe", "Oceania"];
-
 const RegionSelector = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [regionSelected, setRegionSelected] = useState("");
+  const regionFilter = useAppStore((state) => state.regionFilter);
+  const regions = useAppStore((state) => state.regions);
+  const setRegionFilterSelected = useAppStore(
+    (state) => state.setRegionFilterSelected
+  );
 
+  const [isOpen, setIsOpen] = useState(false);
   const onToggleOpen = () => setIsOpen((prev) => !prev);
 
   const onSelectRegion = (region: string) => {
-    setRegionSelected(region);
+    setRegionFilterSelected(region);
     setIsOpen(false);
   };
 
@@ -22,7 +26,7 @@ const RegionSelector = () => {
         onClick={onToggleOpen}
         className="w-[200px] bg-white inputs flex justify-between items-center cursor-pointer "
       >
-        {regionSelected === "" ? "Filter by Region" : regionSelected}
+        {regionFilter === "" ? "Filter by Region" : regionFilter}
         <ChevronDownIcon />
       </span>
 
@@ -36,7 +40,7 @@ const RegionSelector = () => {
             transition={{ duration: 0.5, delay: 0.2, ease: "easeInOut" }}
             className="absolute inputs w-full top-[58px] flex flex-col gap-2 bg-white"
           >
-            {REGIONS.map((region, index) => (
+            {regions.map((region, index) => (
               <motion.li
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
