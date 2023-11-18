@@ -1,9 +1,9 @@
-import SearchField from "./components/SearchField";
+import Header from "./components/Header";
 
 const MainPage = ({ countries }) => {
   return (
     <div>
-      {/* <SearchField /> */}
+      <Header />
     </div>
   );
 };
