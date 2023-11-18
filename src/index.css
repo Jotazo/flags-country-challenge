@@ -7,6 +7,11 @@
   src: url(./assets/fonts/NunitoSans.ttf);
 }
 
-body{
+body {
   font-family: NunitoSans;
+}
+
+.inputs {
+  @apply dark:bg-darkBlue text-sm dark:text-white rounded-md outline-none p-4 my-4;
+  box-shadow: 0px 2px 9px 0px rgba(0, 0, 0, 0.05);
 }
