@@ -1,4 +1,4 @@
-import { SearchIcon } from "../../../assets/Icons";
+import { SearchIcon } from "../../../../assets/Icons";
 
 const SearchField = () => {
   return (
