@@ -1,26 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-import useCountries from "./hooks/useCountries";
 import { Country } from "./interfaces";
 
 import { DetailPage, MainPage } from "./pages";
 import Layout from "./layout/Layout";
 
 import "./App.css";
+import useAppStore from "./store/useAppStore";
 
 function App() {
-  const { countries, loading } = useCountries();
   const [country, setCountry] = useState<Country | null>(null);
+  const getCountries = useAppStore((state) => state.getCountries);
 
-  if (loading) return <Layout>Loading</Layout>;
+  useEffect(() => {
+    getCountries();
+  }, []);
   return (
-    <Layout>
-      {country ? (
-        <DetailPage country={country} />
-      ) : (
-        <MainPage countries={countries} />
-      )}
-    </Layout>
+    <Layout>{country ? <DetailPage country={country} /> : <MainPage />}</Layout>
   );
 }
 

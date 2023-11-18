@@ -1,14 +1,9 @@
 import { motion } from "framer-motion";
-import { Country } from "../../interfaces";
 
 import CountriesList from "./components/CountriesList/CountriesList";
 import Header from "./components/Header/Header";
 
-interface Props {
-  countries: Country[];
-}
-
-const MainPage: React.FC<Props> = ({ countries }) => {
+const MainPage = () => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -18,7 +13,7 @@ const MainPage: React.FC<Props> = ({ countries }) => {
       className="container px-4 pt-4 mx-auto"
     >
       <Header />
-      <CountriesList countries={countries} />
+      <CountriesList />
     </motion.div>
   );
 };

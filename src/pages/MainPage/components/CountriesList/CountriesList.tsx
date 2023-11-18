@@ -1,11 +1,10 @@
-import { Country } from "../../../../interfaces";
+import useAppStore from "../../../../store/useAppStore";
+
 import CountryListItem from "./CountryListItem";
 
-interface Props {
-  countries: Country[];
-}
-
-const CountriesList: React.FC<Props> = ({ countries }) => {
+// const CountriesList: React.FC<Props> = ({ countries }) => {
+const CountriesList = () => {
+  const countries = useAppStore((state) => state.countries);
   return (
     <ul className="grid gap-y-8 place-content-center place-items-center grid-cols-1 sm:grid-cols-2 xl:grid-cols-4">
       {countries.map((country, index) => (
