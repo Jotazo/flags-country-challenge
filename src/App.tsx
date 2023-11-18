@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 
+import useAppStore from "./store/useAppStore";
+
 import { Country } from "./interfaces";
 
-import { DetailPage, MainPage } from "./pages";
 import Layout from "./layout/Layout";
 
+import { DetailPage, MainPage } from "./pages";
+
 import "./App.css";
-import useAppStore from "./store/useAppStore";
 
 function App() {
   const [country, setCountry] = useState<Country | null>(null);
@@ -15,6 +17,7 @@ function App() {
   useEffect(() => {
     getCountries();
   }, []);
+
   return (
     <Layout>{country ? <DetailPage country={country} /> : <MainPage />}</Layout>
   );
