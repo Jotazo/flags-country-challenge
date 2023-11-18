@@ -2,7 +2,7 @@ import Header from "./components/Header";
 
 const MainPage = ({ countries }) => {
   return (
-    <div>
+    <div className="px-4 pt-4">
       <Header />
     </div>
   );
