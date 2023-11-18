@@ -5,6 +5,7 @@ export interface PropsWithChildren {
 }
 
 export interface Country {
+  name: string;
   capital: string;
   population: number;
   region: string;
@@ -12,10 +13,16 @@ export interface Country {
 }
 
 export interface ApiCountry {
+  name: ApiCountryName;
   capital: string;
   population: number;
   region: string;
   flags: Flag;
+}
+
+export interface ApiCountryName {
+  common: string;
+  official: string;
 }
 
 interface Flag {
