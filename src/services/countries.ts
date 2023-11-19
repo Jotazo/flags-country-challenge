@@ -1,6 +1,8 @@
-import { Country } from "../interfaces";
-
 import { ApiCountry } from "./interfaces";
+
+import { handleBorderCountries } from "../utils/handleBorderCountries";
+
+import { Country } from "../interfaces";
 
 const API_URL = "https://restcountries.com/v3.1";
 
@@ -31,7 +33,9 @@ export const getAllCountries = async (): Promise<Country[]> => {
       languages: country.languages
         ? Object.values(country.languages).map((language) => language)
         : [],
-      borderCountries: !country.borders ? [] : country.borders,
+      borderCountries: !country.borders
+        ? []
+        : handleBorderCountries(data, country.borders),
     } as Country;
   });
 };

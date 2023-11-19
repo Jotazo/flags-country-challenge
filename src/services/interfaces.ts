@@ -9,6 +9,7 @@ export interface ApiCountry {
   currencies?: ApiCountryCurrency;
   languages?: { [key: string]: string };
   borders?: string[];
+  fifa: string;
 }
 
 interface ApiCountryName {
