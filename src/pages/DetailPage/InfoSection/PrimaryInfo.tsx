@@ -2,6 +2,8 @@ import { Country } from "../../../interfaces";
 
 import { addCommas } from "../../../utils/addCommas";
 
+import PrimaryInfoArticle from "./components/PrimaryInfoArticle";
+
 interface Props {
   country: Country;
 }
@@ -9,22 +11,21 @@ interface Props {
 const PrimaryInfo: React.FC<Props> = ({ country }) => {
   return (
     <section className="flex flex-col gap-2">
-      <span className="text-sm font-semibold">
-        Native Name: <span className="font-light">{country.nativeName}</span>
-      </span>
-      <span className="text-sm font-semibold">
-        Population:{" "}
-        <span className="font-light">{addCommas(country.population)}</span>
-      </span>
-      <span className="text-sm font-semibold">
-        Region: <span className="font-light">{country.region}</span>
-      </span>
-      <span className="text-sm font-semibold">
-        Subregion: <span className="font-light">{country.subregion}</span>
-      </span>
-      <span className="text-sm font-semibold">
-        Capital: <span className="font-light">{country.capital}</span>
-      </span>
+      <PrimaryInfoArticle label="Native Name:">
+        {country.nativeName}
+      </PrimaryInfoArticle>
+      <PrimaryInfoArticle label="Population:">
+        {addCommas(country.population)}
+      </PrimaryInfoArticle>
+      <PrimaryInfoArticle label="Region:">{country.region}</PrimaryInfoArticle>
+      <PrimaryInfoArticle label="Subregion:">
+        {country.subregion === "" ? "No subregion founded" : country.subregion}
+      </PrimaryInfoArticle>
+      <PrimaryInfoArticle label="Capital:">
+        {country.capital.length === 0
+          ? "No capitals found"
+          : country.capital.map((capital) => capital)}
+      </PrimaryInfoArticle>
     </section>
   );
 };

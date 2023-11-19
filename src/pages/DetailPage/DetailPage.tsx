@@ -33,7 +33,7 @@ const DetailPage: React.FC<Props> = ({ country }) => {
         <img
           src={country.flag}
           alt={country.name}
-          className="rounded-md object-cover flex-1 max-w-[560px] md:max-h-[280px] xl:max-h-none"
+          className="rounded-md object-fill flex-1 max-w-[560px] md:max-h-[280px] xl:max-h-none xl:min-h-[400px]"
         />
         <InfoSection country={country} />
       </main>

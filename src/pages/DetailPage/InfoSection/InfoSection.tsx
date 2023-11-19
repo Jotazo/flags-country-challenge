@@ -2,6 +2,7 @@ import { Country } from "../../../interfaces";
 
 import PrimaryInfo from "./PrimaryInfo";
 import SecondaryInfo from "./SecondaryInfo";
+import Footer from "./Footer";
 
 interface Props {
   country: Country;
@@ -9,31 +10,15 @@ interface Props {
 
 const InfoSection: React.FC<Props> = ({ country }) => {
   return (
-    <main className="flex flex-col gap-8 md:gap-4">
+    <main className="flex flex-col gap-8 md:gap-4 xl:p-10">
       <header>
-        <h3 className="font-extrabold text-lg">{country.name}</h3>
+        <h3 className="font-extrabold text-lg xl:text-[32px]">{country.name}</h3>
       </header>
       <section className="flex flex-col gap-10 md:flex-row">
         <PrimaryInfo country={country} />
         <SecondaryInfo country={country} />
       </section>
-      <footer>
-        <h4 className="font-semibold">Border Countries:</h4>
-        {country.borderCountries.length === 0 ? (
-          <span className="font-light text-sm">No border countries found</span>
-        ) : (
-          <ul className="flex gap-x-2 flex-wrap">
-            {country.borderCountries.map((borderCountry) => (
-              <li
-                key={borderCountry}
-                className="inputs !py-2 !my-2 !px-6 bg-white text-center"
-              >
-                {borderCountry}
-              </li>
-            ))}
-          </ul>
-        )}
-      </footer>
+      <Footer country={country} />
     </main>
   );
 };

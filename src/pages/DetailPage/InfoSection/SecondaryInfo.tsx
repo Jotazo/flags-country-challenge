@@ -1,5 +1,7 @@
 import { Country } from "../../../interfaces";
 
+import SecondaryInfoArticle from "./components/SecondaryInfoArticle";
+
 interface Props {
   country: Country;
 }
@@ -7,16 +9,21 @@ interface Props {
 const SecondaryInfo: React.FC<Props> = ({ country }) => {
   return (
     <section className="flex flex-col gap-2">
-      <span className="text-sm font-semibold">
-        Top Level Domain:{" "}
-        <span className="font-light">{country.topLevelDomain}</span>
-      </span>
-      <span className="text-sm font-semibold">
-        Currencies: <span className="font-light">{country.currencies}</span>
-      </span>
-      <span className="text-sm font-semibold">
-        Languages: <span className="font-light">{country.languages}</span>
-      </span>
+      <SecondaryInfoArticle
+        label="Top Level Domain:"
+        messageNoArrValues="No top level domain found"
+        strArr={country.topLevelDomain}
+      />
+      <SecondaryInfoArticle
+        label="Currencies:"
+        messageNoArrValues="No currencies found"
+        strArr={country.currencies}
+      />
+      <SecondaryInfoArticle
+        label="Languages:"
+        messageNoArrValues="No languages found"
+        strArr={country.languages}
+      />
     </section>
   );
 };
