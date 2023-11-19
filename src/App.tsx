@@ -17,7 +17,13 @@ function App() {
   }, []);
 
   return (
-    <Layout>{country ? <DetailPage country={country} /> : <MainPage />}</Layout>
+    <Layout>
+      {country ? (
+        <DetailPage key={country.name} country={country} />
+      ) : (
+        <MainPage />
+      )}
+    </Layout>
   );
 }
 

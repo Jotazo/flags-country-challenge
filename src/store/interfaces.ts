@@ -6,6 +6,7 @@ export interface CountriesSlice {
   regions: string[];
   getCountries: () => Promise<void>;
   setCountrySelected: (country: Country | null) => void;
+  onClickBorderCountry: (borderCountry: string) => void;
 }
 
 export interface InputsSlice {

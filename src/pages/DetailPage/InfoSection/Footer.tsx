@@ -1,3 +1,5 @@
+import useAppStore from "../../../store/useAppStore";
+
 import { Country } from "../../../interfaces";
 
 interface Props {
@@ -5,6 +7,10 @@ interface Props {
 }
 
 const Footer: React.FC<Props> = ({ country }) => {
+  const onClickBorderCountry = useAppStore(
+    (state) => state.onClickBorderCountry
+  );
+
   return (
     <footer>
       <h4 className="font-semibold">Border Countries:</h4>
@@ -14,8 +20,9 @@ const Footer: React.FC<Props> = ({ country }) => {
         <ul className="flex gap-x-2 flex-wrap">
           {country.borderCountries.map((borderCountry) => (
             <li
+              onClick={() => onClickBorderCountry(borderCountry)}
               key={borderCountry}
-              className="inputs !py-2 !my-2 !px-6 bg-white text-center"
+              className="inputs !py-2 !my-2 !px-6 bg-white text-center cursor-pointer"
             >
               {borderCountry}
             </li>

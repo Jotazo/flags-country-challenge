@@ -6,7 +6,8 @@ import { AppSlices, CountriesSlice } from "./interfaces";
 
 // TODO: Handle Loading/Error state fetching
 const createCountriesSlice: StateCreator<AppSlices, [], [], CountriesSlice> = (
-  set
+  set,
+  get
 ) => ({
   countries: [],
   countrySelected: null,
@@ -21,6 +22,13 @@ const createCountriesSlice: StateCreator<AppSlices, [], [], CountriesSlice> = (
   },
   setCountrySelected: (country) => {
     set({ countrySelected: country });
+  },
+  onClickBorderCountry: (borderCountry) => {
+    const countries = get().countries;
+    const countryClicked = countries.find(
+      (country) => country.name === borderCountry
+    );
+    if (countryClicked) get().setCountrySelected(countryClicked);
   },
 });
 

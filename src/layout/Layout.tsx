@@ -1,6 +1,10 @@
+import { ReactNode } from "react";
+
 import { ThemeToggler } from "@jotazo/react-components-library";
 
-import { PropsWithChildren } from "../interfaces";
+export interface PropsWithChildren {
+  children: ReactNode;
+}
 
 import "./Layout.css";
 
