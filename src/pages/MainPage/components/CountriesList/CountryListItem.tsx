@@ -8,17 +8,15 @@ import "./CountryListItem.css";
 
 interface Props {
   country: Country;
-  delay: number;
 }
 
-const CountryListItem: React.FC<Props> = ({ country, delay }) => {
+const CountryListItem: React.FC<Props> = ({ country }) => {
   return (
     <motion.li
-      layout
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.2, delay, ease: "easeInOut" }}
+      transition={{ duration: 0.2 }}
       className="flex flex-col rounded-lg dark:bg-darkBlue bg-white card transition-colors duration-500"
     >
       <img

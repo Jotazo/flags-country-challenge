@@ -31,16 +31,9 @@ const CountriesList = () => {
   return (
     <ul className="grid gap-y-8 place-content-center place-items-center grid-cols-1 sm:grid-cols-2 xl:grid-cols-4">
       <AnimatePresence>
-        {countriesToShow.map((country, index) => {
-          const delay = index * 0.02;
-          return (
-            <CountryListItem
-              key={country.name}
-              country={country}
-              delay={delay}
-            />
-          );
-        })}
+        {countriesToShow.map((country) => (
+          <CountryListItem key={country.name} country={country} />
+        ))}
       </AnimatePresence>
     </ul>
   );
