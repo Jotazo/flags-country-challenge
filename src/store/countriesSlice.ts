@@ -12,13 +12,16 @@ const createCountriesSlice: StateCreator<AppSlices, [], [], CountriesSlice> = (
   countries: [],
   countrySelected: null,
   regions: [],
+  loading: false,
   getCountries: async () => {
+    get().setLoading(true);
     const countries = await getAllCountries();
     const regions = [
       ...new Set(countries.map((country) => country.region)),
     ].sort();
     regions.unshift("All");
     set({ countries, regions });
+    get().setLoading(false);
   },
   setCountrySelected: (country) => {
     set({ countrySelected: country });
@@ -30,6 +33,7 @@ const createCountriesSlice: StateCreator<AppSlices, [], [], CountriesSlice> = (
     );
     if (countryClicked) get().setCountrySelected(countryClicked);
   },
+  setLoading: (isLoading) => set({ loading: isLoading }),
 });
 
 export default createCountriesSlice;
