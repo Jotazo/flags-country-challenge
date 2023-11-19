@@ -1,35 +1,13 @@
 import { create } from "zustand";
-import { Country } from "../interfaces";
-import { getAllCountries } from "../services/countries";
 
-interface AppState {
-  countries: Country[];
-  countrySelected: Country | null;
-  regions: string[];
-  searchField: string;
-  regionFilter: string;
-  getCountries: () => Promise<void>;
-  setRegionFilterSelected: (region: string) => void;
-  setSearchField: (e: React.ChangeEvent<HTMLInputElement>) => void;
-}
+import { AppSlices } from "./interfaces";
 
-// TODO: Handle Loading/Error state fetching
-const useAppStore = create<AppState>()((set) => ({
-  countries: [],
-  countrySelected: null,
-  regions: [],
-  searchField: "",
-  regionFilter: "All",
-  getCountries: async () => {
-    const countries = await getAllCountries();
-    const regions = [
-      ...new Set(countries.map((country) => country.region)),
-    ].sort();
-    regions.unshift("All");
-    set({ countries, regions });
-  },
-  setRegionFilterSelected: (region) => set({ regionFilter: region }),
-  setSearchField: (e) => set({ searchField: e.target.value }),
+import createCountriesSlice from "./countriesSlice";
+import createInputsSlice from "./inputsSlice";
+
+const useAppStore = create<AppSlices>()((...a) => ({
+  ...createCountriesSlice(...a),
+  ...createInputsSlice(...a),
 }));
 
 export default useAppStore;
