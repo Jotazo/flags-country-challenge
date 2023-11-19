@@ -19,7 +19,10 @@ export const getAllCountries = async (): Promise<Country[]> => {
     }
 
     return {
-      flag: country.flags.png,
+      flag: {
+        svg: country.flags.svg,
+        alt: !country.flags.alt ? country.name.common : country.flags.alt,
+      },
       name: country.name.common,
       nativeName,
       population: country.population,

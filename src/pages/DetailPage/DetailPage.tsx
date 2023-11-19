@@ -29,11 +29,11 @@ const DetailPage: React.FC<Props> = ({ country }) => {
       >
         <ArrowBackIcon /> Back
       </button>
-      <main className="w-full flex flex-col gap-12 md:flex-row dark:text-white text-darkBlueLightText">
+      <main className="w-full flex flex-col xl:flex-row gap-12 md:px-8 xl:px-0 dark:text-white text-darkBlueLightText">
         <img
-          src={country.flag}
-          alt={country.name}
-          className="rounded-md object-fill flex-1 max-w-[560px] md:max-h-[280px] xl:max-h-none xl:min-h-[400px]"
+          src={country.flag.svg}
+          alt={country.flag.alt}
+          className="rounded-md object-fill flex-1  md:max-h-[380px] xl:max-h-none xl:min-h-[400px] xl:max-w-[560px] "
         />
         <InfoSection country={country} />
       </main>

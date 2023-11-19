@@ -25,8 +25,8 @@ const CountryListItem: React.FC<Props> = ({ country }) => {
       onClick={() => setCountrySelected(country)}
     >
       <img
-        src={country.flag}
-        alt={country.region}
+        src={country.flag.svg}
+        alt={country.flag.alt}
         className="object-fill rounded-tl-lg rounded-tr-lg w-[345px] h-[230px]"
       />
       <main className="flex flex-col gap-4 px-6 pt-8 pb-12 dark:text-white text-darkBlueLightText">

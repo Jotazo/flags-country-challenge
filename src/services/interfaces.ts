@@ -30,6 +30,7 @@ interface NativeName {
 interface Flag {
   png: string;
   svg: string;
+  alt?:  string
 }
 
 interface ApiCountryCurrency {

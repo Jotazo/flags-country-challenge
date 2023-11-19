@@ -1,5 +1,5 @@
 export interface Country {
-  flag: string;
+  flag: Flag;
   name: string;
   nativeName: string;
   population: number;
@@ -10,4 +10,9 @@ export interface Country {
   currencies: string[];
   languages: string[];
   borderCountries: string[];
+}
+
+interface Flag {
+  svg: string;
+  alt: string;
 }
