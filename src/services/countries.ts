@@ -1,4 +1,6 @@
-import { ApiCountry, Country } from "../interfaces";
+import { Country } from "../interfaces";
+
+import { ApiCountry } from "./interfaces";
 
 const API_URL = "https://restcountries.com/v3.1";
 

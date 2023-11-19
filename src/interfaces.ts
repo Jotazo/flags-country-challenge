@@ -11,21 +11,3 @@ export interface Country {
   region: string;
   flag: string;
 }
-
-export interface ApiCountry {
-  name: ApiCountryName;
-  capital: string;
-  population: number;
-  region: string;
-  flags: Flag;
-}
-
-export interface ApiCountryName {
-  common: string;
-  official: string;
-}
-
-interface Flag {
-  png: string;
-  svg: string;
-}
