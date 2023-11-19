@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 import { Country } from "../../../../interfaces";
 
 import { addCommas } from "../../../../utils/addCommas";
@@ -6,11 +8,19 @@ import "./CountryListItem.css";
 
 interface Props {
   country: Country;
+  delay: number;
 }
 
-const CountryListItem: React.FC<Props> = ({ country }) => {
+const CountryListItem: React.FC<Props> = ({ country, delay }) => {
   return (
-    <li className="flex flex-col rounded-lg dark:bg-darkBlue bg-white card transition-colors duration-500">
+    <motion.li
+      layout
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2, delay, ease: "easeInOut" }}
+      className="flex flex-col rounded-lg dark:bg-darkBlue bg-white card transition-colors duration-500"
+    >
       <img
         src={country.flag}
         alt={country.region}
@@ -32,7 +42,7 @@ const CountryListItem: React.FC<Props> = ({ country }) => {
           </span>
         </section>
       </main>
-    </li>
+    </motion.li>
   );
 };
 

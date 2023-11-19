@@ -1,4 +1,7 @@
+import { AnimatePresence, motion } from "framer-motion";
+
 import useAppStore from "../../../../store/useAppStore";
+
 import { filterCountries } from "../../../../utils/filterCountries";
 
 import CountryListItem from "./CountryListItem";
@@ -13,11 +16,32 @@ const CountriesList = () => {
     searchField,
   });
 
+  if (countriesToShow.length === 0)
+    return (
+      <motion.h1
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.2, ease: "easeInOut" }}
+        className="dark:text-white font-semibold text-5xl text-center mt-8"
+      >
+        No countries founded...
+      </motion.h1>
+    );
+
   return (
     <ul className="grid gap-y-8 place-content-center place-items-center grid-cols-1 sm:grid-cols-2 xl:grid-cols-4">
-      {countriesToShow.map((country, index) => (
-        <CountryListItem key={index} country={country} />
-      ))}
+      <AnimatePresence>
+        {countriesToShow.map((country, index) => {
+          const delay = index * 0.02;
+          return (
+            <CountryListItem
+              key={country.name}
+              country={country}
+              delay={delay}
+            />
+          );
+        })}
+      </AnimatePresence>
     </ul>
   );
 };

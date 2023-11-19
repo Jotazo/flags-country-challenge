@@ -1,5 +1,6 @@
-import { SearchIcon } from "../../../../assets/Icons";
 import useAppStore from "../../../../store/useAppStore";
+
+import { SearchIcon } from "../../../../assets/Icons";
 
 const SearchField = () => {
   const searchField = useAppStore((state) => state.searchField);
