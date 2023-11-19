@@ -5,9 +5,15 @@ export interface PropsWithChildren {
 }
 
 export interface Country {
+  flag: string;
   name: string;
-  capital: string;
+  nativeName: string;
   population: number;
   region: string;
-  flag: string;
+  subregion: string;
+  capital: string[];
+  topLevelDomain: string[];
+  currencies: string[];
+  languages: string[];
+  borderCountries: string[];
 }
