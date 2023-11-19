@@ -10,6 +10,7 @@ interface AppState {
   regionFilter: string;
   getCountries: () => Promise<void>;
   setRegionFilterSelected: (region: string) => void;
+  setSearchField: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 // TODO: Handle Loading/Error state fetching
@@ -27,6 +28,7 @@ const useAppStore = create<AppState>()((set) => ({
     set({ countries, regions });
   },
   setRegionFilterSelected: (region) => set({ regionFilter: region }),
+  setSearchField: (e) => set({ searchField: e.target.value }),
 }));
 
 export default useAppStore;
