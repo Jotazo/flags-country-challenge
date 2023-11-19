@@ -19,6 +19,9 @@ const createCountriesSlice: StateCreator<AppSlices, [], [], CountriesSlice> = (
     regions.unshift("All");
     set({ countries, regions });
   },
+  setCountrySelected: (country) => {
+    set({ countrySelected: country });
+  },
 });
 
 export default createCountriesSlice;

@@ -5,6 +5,7 @@ export interface CountriesSlice {
   countrySelected: Country | null;
   regions: string[];
   getCountries: () => Promise<void>;
+  setCountrySelected: (country: Country | null) => void;
 }
 
 export interface InputsSlice {
