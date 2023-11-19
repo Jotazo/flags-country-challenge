@@ -26,7 +26,7 @@ const RegionSelector = () => {
         onClick={onToggleOpen}
         className="w-[200px] bg-white inputs flex justify-between items-center cursor-pointer "
       >
-        {regionFilter === "" ? "Filter by Region" : regionFilter}
+        {regionFilter === "All" ? "Filter by Region" : regionFilter}
         <ChevronDownIcon />
       </span>
 
@@ -37,17 +37,16 @@ const RegionSelector = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.5, delay: 0.2, ease: "easeInOut" }}
+            transition={{ duration: 0.2, ease: "easeInOut" }}
             className="absolute inputs w-full top-[58px] flex flex-col gap-2 bg-white"
           >
-            {regions.map((region, index) => (
+            {regions.map((region) => (
               <motion.li
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{
-                  duration: 0.5,
-                  delay: index * 0.05,
+                  duration: 0.2,
                   ease: "easeInOut",
                 }}
                 onClick={() => onSelectRegion(region)}

@@ -10,7 +10,7 @@ export const filterCountries = (
 
   return countriesToFilter
     .filter((country) => {
-      if (regionFilter !== "")
+      if (regionFilter !== "All")
         return (
           country.region === regionFilter && searchRegExp.test(country.name)
         );

@@ -19,12 +19,13 @@ const useAppStore = create<AppState>()((set) => ({
   countrySelected: null,
   regions: [],
   searchField: "",
-  regionFilter: "",
+  regionFilter: "All",
   getCountries: async () => {
     const countries = await getAllCountries();
     const regions = [
       ...new Set(countries.map((country) => country.region)),
     ].sort();
+    regions.unshift("All");
     set({ countries, regions });
   },
   setRegionFilterSelected: (region) => set({ regionFilter: region }),
